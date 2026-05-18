@@ -13,15 +13,15 @@ const ai = new GoogleGenAI({
 });
 
 async function startServer() {
-  const app = express();
-  const PORT = 3000;
+const app = express();
+const PORT = Number(process.env.PORT) || 3000;
 
-  app.use(express.json());
+app.use(express.json());
 
-  // API Routes
-  app.get("/api/health", (req, res) => {
-    res.json({ status: "ok" });
-  });
+// API Routes
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok" });
+});
 
   app.post("/api/recommendations", async (req, res) => {
     try {
@@ -69,7 +69,7 @@ async function startServer() {
     {
       id: "1",
       title: "Doctor Strange: Đa Vũ Trụ Điên Loạn",
-      image: './images/1.jpg',
+      image: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/aWzlQ2N6qqg",
       rating: 8.5,
       duration: "126 phút",
@@ -80,7 +80,7 @@ async function startServer() {
     {
       id: "2",
       title: "Avatar: Dòng Chảy Của Nước",
-      image: "./images/2.jpg",
+      image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/d9MyW72ELq0",
       rating: 9.0,
       duration: "192 phút",
@@ -91,7 +91,7 @@ async function startServer() {
     {
       id: "3",
       title: "John Wick: Chương 4",
-      image: "./images/3.jpg",
+      image: "https://images.unsplash.com/photo-1594908900066-3f47337549d8?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/qEVUtrk8_B4",
       rating: 8.8,
       duration: "169 phút",
@@ -102,7 +102,7 @@ async function startServer() {
     {
       id: "4",
       title: "Suzume: Khóa Chặt Cửa Thần",
-      image: "./images/4.jpg",
+      image: "https://images.unsplash.com/photo-1578632738980-421719608889?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/6m6_G44M5O4",
       rating: 8.7,
       duration: "122 phút",
@@ -113,7 +113,7 @@ async function startServer() {
     {
       id: "5",
       title: "Lật Mặt 7: Một Điều Ước",
-      image: "./images/5.jpg",
+      image: "https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/mGj9z8qA6A4",
       rating: 8.9,
       duration: "115 phút",
@@ -124,7 +124,7 @@ async function startServer() {
     {
       id: "6",
       title: "Alien: Romulus",
-      image: "./images/6.jpg",
+      image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/GTNMt84KT0k",
       rating: 8.5,
       duration: "119 phút",
@@ -256,34 +256,34 @@ async function startServer() {
     {
       id: "18",
       title: "Ma Da",
-      image: "https://images.unsplash.com/photo-1543185377-99cd19911181?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1505372404390-2e06f2334882?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/V3wW8S8h6_E",
       rating: 7.5,
       duration: "98 phút",
       genre: "Kinh dị",
-      description: "Tình mẫu tử thiêng liêng đối mặt với truyền thuyết tâm linh đáng sợ nơi sông nước miền Tây.",
+      description: "Câu chuyện tâm linh rùng rợn về linh hồn oan khuất nơi sông nước miền Tây đeo bám gia đình một người thợ vớt xác.",
       showtimes: ["19:15", "21:30", "23:45"]
     },
     {
       id: "19",
       title: "Mai",
-      image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1512149177596-f817c7ef1d4c?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/pXpDOnK0-No",
       rating: 8.5,
       duration: "131 phút",
       genre: "Tình cảm",
-      description: "Câu chuyện về cuộc đời và những tổn thương sâu sắc của một người phụ nữ tên Mai.",
+      description: "Một người phụ nữ mát-xa có quá khứ nhiều tổn thương tìm thấy tình yêu chân thành bên cậu thiếu gia trẻ tuổi đào hoa.",
       showtimes: ["10:00", "14:15", "18:30", "21:45"]
     },
     {
       id: "20",
       title: "Nhà Bà Nữ",
-      image: "https://images.unsplash.com/photo-1485093451681-d1c9257e96e5?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/E5WvExhM_D4",
       rating: 8.2,
       duration: "102 phút",
       genre: "Tình cảm",
-      description: "Những mâu thuẫn gia đình và khoảng cách thế hệ trong một gia đình lao động tại Sài Gòn.",
+      description: "Bản hòa ca về những mâu thuẫn, khoảng cách và sự thấu hiểu trong một gia đình đa thế hệ kinh doanh món bánh canh cua.",
       showtimes: ["09:30", "12:15", "15:00", "19:30"]
     }
 ,
@@ -449,7 +449,7 @@ async function startServer() {
       rating: 7.3,
       duration: "105 phút",
       genre: "Kinh dị",
-      description: "Dì bản kinh dị về câu chuyện Tấm Cám trong dân gian Việt Nam.",
+      description: "Dị bản kinh dị đầy ám ảnh của truyện cổ tích Tấm Cám, khám phá những góc tối nấp sau một truyền thuyết nổi tiếng.",
       showtimes: ["15:00", "18:00", "21:00"]
     },
     {
@@ -620,23 +620,23 @@ async function startServer() {
     {
       id: "51",
       title: "Lật Mặt 6: Tấm Vé Định Mệnh",
-      image: "https://images.unsplash.com/photo-1485093451681-d1c9257e96e5?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1478720131746-8693cc54497e?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/S_IPh6YpExY",
       rating: 8.8,
       duration: "132 phút",
       genre: "Hành động",
-      description: "Một nhóm bạn thân mua chung tấm vé số trúng giải độc đắc, dẫn đến những bi kịch sau đó.",
+      description: "Nhóm bạn thân lâu năm bị cuốn vào vòng xoáy của lòng tham và nghi kỵ sau khi sở hữu tấm vé số trúng giải độc đắc hàng tỷ đồng.",
       showtimes: ["11:00", "14:30", "18:30", "21:00"]
     },
     {
       id: "52",
       title: "Hai Phượng",
-      image: "https://images.unsplash.com/photo-1594908900066-3f47337549d8?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=800",
       trailer: "https://www.youtube.com/embed/E5WvExhM_D4",
       rating: 8.4,
       duration: "98 phút",
       genre: "Hành động",
-      description: "Hành trình nghẹt thở của một người mẹ đơn thân đi tìm đứa con bị bắt cóc.",
+      description: "Một nữ cao thủ giấu mình trong bóng đêm phải lộ diện, bắt đầu hành trình đơn độc tìm lại đứa con bị bắt cóc bởi băng đảng buôn người.",
       showtimes: ["13:00", "16:00", "19:00", "22:00"]
     }
   ];
@@ -715,16 +715,32 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
+    // In production (Vercel or Container)
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
+      // Use original path for static serving
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+  // Only listen if this file is run directly (not as a module on Vercel)
+  if (process.env.VERCEL) {
+    console.log("Running on Vercel - Exporting app instead of listening");
+  } else {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  }
+
+  return app;
 }
 
-startServer();
+// Khởi chạy server ngay lập tức cho môi trường AI Studio
+const appPromise = startServer();
+
+// Export mặc định cho Vercel (nếu cần triển khai dưới dạng Serverless Function)
+export default async (req: any, res: any) => {
+  const app = await appPromise;
+  return app(req, res);
+};

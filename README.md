@@ -1,56 +1,35 @@
-# CineBooking - Ứng dụng đặt vé xem phim hiện đại
+# CineBooking App 🎬
 
-CineBooking là ứng dụng web full-stack được xây dựng bằng React (Vite) và Express, tích hợp AI gợi ý phim.
+Hệ thống đặt vé xem phim trực tuyến hiện đại được xây dựng bằng React, Vite, Express và Tailwind CSS.
 
-## 🚀 Hướng dẫn cài đặt và chạy (A-Z)
+## 🚀 Hướng dẫn Triển khai lên Vercel
 
-Sau khi bạn tải mã nguồn về máy tính, hãy làm theo các bước sau:
+Để chạy được website này trên internet, bạn hãy làm theo các bước sau:
 
-### 1. Yêu cầu hệ thống
-- Đã cài đặt **Node.js** (Phiên bản 18 trở lên).
-- Một trình soạn thảo mã nguồn như **VS Code**.
+### 1. Đưa code lên GitHub
+- Nhấn vào menu **Settings** (biểu tượng bánh răng) ở góc trên bên phải AI Studio.
+- Chọn **Export to GitHub**.
+- Kết nối tài khoản GitHub của bạn và tạo một Repository mới.
 
-### 2. Cài đặt Dependencies
-Mở terminal (hoặc Command Prompt) tại thư mục gốc của dự án và chạy:
-```bash
-npm install
-```
+### 2. Kết nối với Vercel
+- Truy cập [vercel.com](https://vercel.com) và đăng nhập.
+- Nhấn **Add New** -> **Project**.
+- Tìm và chọn Repository bạn vừa tạo trên GitHub -> **Import**.
 
-### 3. Cấu hình biến môi trường (.env)
-Tạo một file tên là `.env` ở thư mục gốc (nếu chưa có) và thêm các thông tin sau:
-```env
-GEMINI_API_KEY="KEY_CỦA_BẠN_TẠI_AI_STUDIO"
-PORT=3000
-NODE_ENV=development
-```
-*Lưu ý: Bạn có thể lấy GEMINI_API_KEY miễn phí tại [Google AI Studio](https://aistudio.google.com/app/apikey).*
+### 3. Cấu hình biến môi trường (Cực kỳ quan trọng)
+Trong phần **Environment Variables** trên Vercel, bạn hãy thêm các biến sau:
+- `NODE_ENV`: `production`
+- `GEMINI_API_KEY`: (Lấy từ Google AI Studio nếu bạn có dùng tính năng AI)
+- `PORT`: `3000`
 
-### 4. Chạy ứng dụng ở chế độ phát triển (Development)
-Chạy lệnh sau:
-```bash
-npm run dev
-```
-Sau đó mở trình duyệt và truy cập: `http://localhost:3000`
+### 4. Deploy
+- Nhấn **Deploy**. Vercel sẽ tự động cài đặt và cấp cho bạn một đường link (ví dụ: `your-app.vercel.app`).
 
----
-
-## 🛠 Giải đáp thắc mắc
-
-### 1. "Mỗi lần chạy mỗi lần lấy key à?"
-**Trả lời:** Không cần. 
-- Khi chạy trên **AI Studio**, key được quản lý tự động trong phần "Secrets".
-- Khi chạy trên **máy cá nhân**, bạn chỉ cần lấy key 1 lần và dán vào file `.env` như hướng dẫn ở trên. Hệ thống sẽ tự dùng key đó mỗi khi bạn khởi động web.
-
-### 2. Các chức năng chính đã hoàn thiện:
-- **Giao diện:** Modern Dark Mode, tối ưu cho cả điện thoại và máy tính.
-- **Đặt vé:** Quy trình chọn phim -> chọn lịch -> chọn ghế -> xác nhận.
-- **Auth:** Đã có hệ thống Đăng ký / Đăng nhập thật (lưu session).
-- **AI Cine:** Chatbot tư vấn phim thông minh sử dụng Gemini API.
-- **Gợi ý:** Tính năng nhận 3 phim gợi ý theo tâm trạng từ AI.
+## 🛠 Công nghệ sử dụng
+- **Frontend**: React 18, Vite, Framer Motion (Hiệu ứng), Tailwind CSS.
+- **Backend**: Node.js, Express.
+- **Icon**: Lucide React.
+- **Fonts**: Inter, Playfair Display.
 
 ---
-
-## 🏗 Cấu trúc dự án
-- `/src`: Chứa mã nguồn Frontend (React).
-- `server.ts`: Chứa mã nguồn Backend (Express API & Gemini integration).
-- `vite.config.ts`: Cấu hình build và server.
+© 2024 CINEBOOKING VIETNAM.
