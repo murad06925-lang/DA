@@ -1,8 +1,0 @@
-{
-  "name": "CineBooking",
-  "description": "Ứng dụng đặt vé xem phim hiện đại với giao diện đẹp, cho phép chọn ghế, xem lịch chiếu và nhận gợi ý phim từ AI.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
